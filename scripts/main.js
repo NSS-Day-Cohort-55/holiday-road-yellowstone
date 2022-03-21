@@ -1,14 +1,14 @@
 import {bizarreData} from "./attractions/AttractionDataManager.js"
 import { eatData } from "./eateries/EateryDataManager.js"
 import { parkData } from "./parks/ParkDataManager.js"
-import { weatherData } from "./weather/WeatherDataManager.js"
+import { footerHTML } from "./footer/Footer.js"
 
 
 
 const weatherFunc= (obj)=>{
     obj.then((i)=>{document.querySelector(".test").innerHTML=`${i.list.map(butt=>butt.main.temp)}`})
 }
- weatherFunc(weatherData())
+//  weatherFunc(getWeatherData())
 
 // for parkData 
 const renderNestedHtml= (allInfo)=>{
@@ -43,3 +43,7 @@ const render= ()=>{
 }
 
 // render()
+
+
+
+footerHTML()
