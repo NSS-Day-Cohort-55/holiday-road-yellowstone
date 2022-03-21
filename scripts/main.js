@@ -44,19 +44,21 @@ const renderHtml= (allInfo)=>{
 
 //assigns an event listener to each card that resets all panels to inactive, then sets the clicked panel to active
 panels.forEach((panel) => {
-  panel.addEventListener("click", () => {
-    removeActiveClasses();
-    displayTitles();
-    // clearDisplay();
-    panel.classList.add("active");
-    const displayText = panel.querySelector('.text-box');
-    const removeTitle = panel.querySelector('.panel-title');
-
-    displayText.style.cssText = 'display: block;';
-    // removeTitle.style.cssText = 'display:none;';
-    
+    panel.addEventListener("click", () => {
+      removeActiveClasses();
+      displayTitles();
+      // clearDisplay();
+      panel.classList.add("active");
+      const displayText = panel.querySelector('.text-box');
+      const removeTitle = panel.querySelector('.panel-title');
+  
+      setTimeout(func =>{
+          displayText.style.cssText = 'display: block;';
+      }, 700),
+      removeTitle.style.cssText = 'opacity:0;';
+      
+    });
   });
-});
 
 //removes active from the class name of all panels
 const removeActiveClasses = () => {
