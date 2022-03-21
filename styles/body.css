@@ -1,3 +1,61 @@
 body {
     margin: 0px;
 }
+.text-box{
+    transition: opacity 0.7s ease-in 0.7s;
+    position: absolute;
+    bottom: 0px;
+    /* opacity: 0; */
+    color: #fff;
+    margin: 10px ;
+    background-color: rgba(0,0,0,0.5);
+    padding: 10px 30px;
+    overflow: hidden;
+    display:none;
+  }
+  .text-box h3{
+    border-bottom: 1px solid black;
+    font-size: larger;
+  }
+  .text-box p{
+    filter:drop-shadow(2px);
+    font-size: 1.5rem;
+  }
+  .container {
+    display: flex;
+    width: 90vw;
+  }
+  .panel-title{
+    transition: opacity 0.7s ease-in 0.7s;
+    writing-mode: vertical-lr;
+    text-transform: uppercase;
+    margin: 2em;
+    padding: 0;
+  }
+  .panel-title h2{
+    margin: 0;
+    padding: 0;
+  }
+  
+  .panel {
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    flex: 0.5;
+    margin: 1px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+    overflow:hidden;
+  }
+  
+  .panel.active {
+    flex: 10;
+  }
+  .panel-active .text-box{
+    transition: opacity 0.7s ease-in 0.7s;
+    opacity:1;
+  }
