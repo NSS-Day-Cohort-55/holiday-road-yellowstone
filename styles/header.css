@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+header {
+    background-color: #C05746;
+    display: flex;
+    width:auto;
+    height: 8em;
+    z-index: 10;
+    align-items: center;
+}
+
+.yellow-stone-travel {
+    font-family: 'Caveat', cursive;
+    color: #eeeeaa;
+    text-align: left;
+    font-size: xx-large;
+}
+
+img {
+    size: 10px;
+}
+
+.logo-image img{
+    width: 8em;
+}
