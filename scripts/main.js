@@ -2,7 +2,7 @@ import {bizarreData} from "./attractions/AttractionDataManager.js"
 import { eatData } from "./eateries/EateryDataManager.js"
 import { parkData } from "./parks/ParkDataManager.js"
 import { footerHTML } from "./footer/Footer.js"
-import {getCards} from "./cards/formatCards.js"
+import { displayCards } from "./cards/renderCards.js"
 
 //selects elements needed for rendering of cards
 const panels = document.querySelectorAll(".panel");
@@ -85,5 +85,5 @@ const render= ()=>{
 // render()
 
 
-
+displayCards()
 footerHTML()
