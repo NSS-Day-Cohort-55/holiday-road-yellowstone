@@ -1,8 +1,6 @@
-
-* {
-    box-sizing: border-box;
-  }
-  
+body{
+    margin:0px;
+}  
   .text-box{
     transition: opacity 0.4s ease-in 0.7s;
     /* opacity: 0; */
@@ -66,5 +64,8 @@
     transition: opacity 0.4s ease-in 0.7s;
     opacity:1;
   }
+<<<<<<< HEAD
   
   
+=======
+>>>>>>> main
