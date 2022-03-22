@@ -3,27 +3,41 @@ import {parkData} from "../parks/ParkDataManager.js"
 import { renderWeather } from "../weather/WeatherDataManager.js"
 import { settings } from "../Settings.js"
 
-export const displayCards = () =>{
+export const ParkCard = () =>{
     let dataToRender = ""
     //pulls in data from park api and formats/renders it into HTML
-    parkData(settings.npsKey, "stateCode=tn" )
+    parkData(settings.npsKey, "stateCode=tn")
         .then(dataFromPark =>{
-            for(let i = 0; i < 4; i++){
-                dataToRender += `<div class="panel" id="panel" style="background-image: url('${dataFromPark.data[i].images[0].url}');">`
-                dataToRender += `<h2 class="panel-title">${dataFromPark.data[i].fullName}</h2>`
-                dataToRender += '<div class="text-box">'
-                dataToRender += '<p>Five day forecast:</p>'
-                dataToRender += `<p>Monday: ${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 0)}</p>`
-                // dataToRender += `<p>Tuesday:${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 1)}</p>`
-                // dataToRender += `<p>Wednesday:${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 2)}</p>`
-                // dataToRender += `<p>Thursday:${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 3)}</p>`
-                // dataToRender += `<p>Friday:${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 4)}</p>`
-                dataToRender += `<h3>${dataFromPark.data[i].fullName}</h3>`
-                dataToRender += `<p>${dataFromPark.data[i].description}</p>`
-                dataToRender += '<button class="_Save Trip_">Save</button>'
-                dataToRender += '</div>'
-                dataToRender += '</div>'  
-            }
+                dataToRender += `<div class="panel" id="panel" style="background-image: url('${dataFromPark.data[0].images[0].url}');">
+                <h2 class="panel-title">${dataFromPark.data[0].fullName}</h2>
+                <div class="text-box">
+                <p>Five day forecast:</p>
+                <div class="weather-data-el">`
+                renderWeather(dataFromPark.data[0].latitude, dataFromPark.data[0].longitude, settings.weatherKey, 0)
+                    .then(results =>{
+                        `<p>Monday: ${results}</p>`
+                    })
+
+                `</div>
+                <h3>${dataFromPark.data[0].fullName}</h3>
+                <p>${dataFromPark.data[0].description}</p>
+                <button class="_Save Trip_">Save</button>
+                </div>
+                </div>`
+            
             document.querySelector(".card-container-el").innerHTML += dataToRender            
         })      
 }
+
+export const EateryCard = () =>{
+
+}
+export const BizCard = () =>{
+    
+}
+
+
+// <p>Tuesday:${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 1)}</p>
+// <p>Wednesday:${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 2)}</p>
+// <p>Thursday:${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 3)}</p>
+// <p>Friday:${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 4)}</p>

@@ -1,7 +1,7 @@
 //
 
 export const getWeatherData = (lat, long, apikey) =>{
-    return fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${apikey}`)
+    return fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=hourly,minutely&appid=${apikey}&timezone=America/Chicago`)
     .then(response => response.json())
 }
 
@@ -25,9 +25,10 @@ export const renderLatLong = (city, state, apikey) =>{
         })) 
     return weatherActual
 }
-export const renderWeather = (lat, long, apikey, loc) =>{
+export const renderWeather = (lat, long, apikey, index) =>{
     getWeatherData(lat, long, apikey)
         .then(weatherData =>{
-            console.log(weatherData.list[0].weather[loc])
+            console.log(weatherData)
+            return parseInt(1.8*(weatherData.daily[index].temp.day - 273) +32)
         })
 }

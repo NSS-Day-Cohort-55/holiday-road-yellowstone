@@ -21,6 +21,10 @@ body {
   filter: drop-shadow(2px);
   font-size: 1.5rem;
 }
+.weather-data-el{
+  display:flex;
+  flex-direction: row;
+}
 /* h2 {
   /* opacity: 0; */
 
