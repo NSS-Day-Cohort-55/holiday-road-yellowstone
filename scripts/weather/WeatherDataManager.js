@@ -1,9 +1,8 @@
 //
 
-const getWeatherData = (lat, long, apikey) =>{
+export const getWeatherData = (lat, long, apikey) =>{
     return fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${apikey}`)
     .then(response => response.json())
-    .then(result => {return result})
 }
 
 const getGeoCode = (city, state, apikey) =>{
@@ -26,9 +25,9 @@ export const renderLatLong = (city, state, apikey) =>{
         })) 
     return weatherActual
 }
-
-export const getBasicWeather = (lat, long, apikey) =>{
-    return fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${apikey}`)
-    .then(response => response.json())
-    .then(result => {return result})
+export const renderWeather = (lat, long, apikey, loc) =>{
+    getWeatherData(lat, long, apikey)
+        .then(weatherData =>{
+            console.log(weatherData.list[0].weather[loc])
+        })
 }
