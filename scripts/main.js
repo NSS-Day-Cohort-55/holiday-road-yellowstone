@@ -5,9 +5,7 @@ import { footerHTML } from "./footer/Footer.js"
 import { displayCards } from "./cards/renderCards.js"
 
 //selects elements needed for rendering of cards
-const panels = document.querySelectorAll(".panel");
-const text = document.querySelectorAll(".text-box")
-const titles = document.querySelectorAll(".panel-title")
+
 
 const weatherFunc= (obj)=>{
     obj.then((i)=>{document.querySelector(".test").innerHTML=`${i.list.map(butt=>butt.main.temp)}`})
@@ -41,43 +39,44 @@ const renderHtml= (allInfo)=>{
     }
     return html
 }
+const panels = document.querySelectorAll(".panel");
+const text = document.querySelectorAll(".text-box")
+const titles = document.querySelectorAll(".panel-title")
 
-//assigns an event listener to each card that resets all panels to inactive, then sets the clicked panel to active
-panels.forEach((panel) => {
-    panel.addEventListener("click", () => {
-      removeActiveClasses();
-      displayTitles();
-      // clearDisplay();
-      panel.classList.add("active");
-      const displayText = panel.querySelector('.text-box');
-      const removeTitle = panel.querySelector('.panel-title');
-  
-      setTimeout(func =>{
-          displayText.style.cssText = 'display: block;';
-      }, 700),
-      removeTitle.style.cssText = 'opacity:0;';
-      
-    });
-  });
-
-//removes active from the class name of all panels
 const removeActiveClasses = () => {
-  panels.forEach((panel) => {
-    panel.classList.remove("active");
+    panels.forEach((panel) => {
+      panel.classList.remove("active");
+  
+    });
+    text.forEach(text =>{
+      text.style.display = "none";
+  })
+  
+  };
+  
+  //work in progress to remove display of vertical titles when card expands
+  const displayTitles = () =>{
+      titles.forEach(title =>{
+          title.classList.display = "block";
+      })
+  }
+//assigns a listener to the card container, and performs actions based on the target
+document.querySelector(".card-container-el")
+    .addEventListener("click", clickEvent =>{
 
-  });
-  text.forEach(text =>{
-    text.style.display = "none";
-})
-
-};
-
-//work in progress to remove display of vertical titles when card expands
-const displayTitles = () =>{
-    titles.forEach(title =>{
-        title.classList.display = "block";
+        if(clickEvent.target.id === "panel"){
+            removeActiveClasses()
+            displayTitles()
+            clickEvent.target.classList.add("active");
+            const displayText = clickEvent.target.querySelector('.text-box');
+            const removeTitle = clickEvent.target.querySelector('.panel-title');
+            setTimeout(func =>{displayText.style.cssText = 'display: block;'}, 700),removeTitle.style.cssText = 'opacity:0;'
+            
+            
+        }
     })
-}
+
+
 const render= ()=>{
     parkData().then((obj)=>{document.querySelector(".test").innerHTML=renderHtml(obj)})
 }
