@@ -13,9 +13,9 @@ export const displayCards = () =>{
                 dataToRender += `<h2 class="panel-title">${dataFromPark.data[i].fullName}</h2>`
                 dataToRender += '<div class="text-box">'
                 dataToRender += '<p>Five day forecast:</p>'
-                // dataToRender += `<p>Monday: ${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 0)}</p>`
+                dataToRender += `<p>Monday: ${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 0)}</p>`
                 // dataToRender += `<p>Tuesday:${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 1)}</p>`
-                dataToRender += `<p>Wednesday:${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 2)}</p>`
+                // dataToRender += `<p>Wednesday:${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 2)}</p>`
                 // dataToRender += `<p>Thursday:${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 3)}</p>`
                 // dataToRender += `<p>Friday:${renderWeather(dataFromPark.data[i].latitude, dataFromPark.data[i].longitude, settings.weatherKey, 4)}</p>`
                 dataToRender += `<h3>${dataFromPark.data[i].fullName}</h3>`
