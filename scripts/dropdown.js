@@ -1,14 +1,15 @@
-// HTML snippets for dropdowns
+import { bizarreData } from "./attractions/AttractionDataManager.js";
+import { eatData } from "./eateries/EateryDataManager.js";
+import { stateNames } from "./StateNames/stateNames.js";
 
-// v1
-/*
-    <div><label for="state">Choose a state:</label></div>
 
-    <select name="state-dropdown" id="state-dropdown">
-      <option value="stateName">stateName</option>
-      <option value="stateName">stateName</option>
-      <option value="stateName">stateName</option>
-      <option value="stateName">stateName</option>
-    </select>
+export const eatDropRender=()=>{
+  eatData().then((obj)=>{
+    for (const i of obj){
+    document.querySelector("#eat-dropdown").innerHTML+=
+`
+<option class="eatListen--${i.id}" value="eatName">${i.businessName}</option>
+    `
+  
 
-*/
+}})}
