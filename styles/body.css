@@ -28,9 +28,10 @@ body{
     display:flex;
     justify-content: center;
   }
-  .container {
+  .card-container-el {
     display: flex;
-    width: 90vw;
+    width: 100vw;
+    box-sizing: border-box;
   }
   .panel-title{
     transition: opacity 0.3s ease-in 0.4s;
@@ -44,7 +45,7 @@ body{
     padding: 0;
   }
   .panel {
-    background-size: auto 100%;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 80vh;
@@ -64,8 +65,5 @@ body{
     transition: opacity 0.4s ease-in 0.7s;
     opacity:1;
   }
-<<<<<<< HEAD
   
   
-=======
->>>>>>> main

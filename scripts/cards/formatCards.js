@@ -4,7 +4,7 @@ import { getBasicWeather } from "../weather/WeatherDataManager.js"
 export const getCards = (parkObj, weatherObj) =>{
     return 
     `
-        <div class="panel" style="background-image: url(``);"> 
+        <div class="panel"> 
             <h2 class="panel-title">${parkObj.fullName}</h2>
             <div class="text-box">
             <p>Five day forecast:</p>
@@ -32,3 +32,5 @@ export const getCards = (parkObj, weatherObj) =>{
 // //         })
 
 // // }
+
+// style="background-image: url('${parkObj.fullName}');
