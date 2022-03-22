@@ -21,11 +21,11 @@ body{
   filter:drop-shadow(2px);
   font-size: 1.5rem;
 }
-h2{
+/* h2 {
   /* opacity: 0; */
-}
-.title-div{
-  display:flex;
+
+.title-div {
+  display: flex;
   justify-content: center;
 }
 .card-container-el {
@@ -63,5 +63,5 @@ h2{
 }
 .panel-active .text-box{
   transition: opacity 0.4s ease-in 0.7s;
-  opacity:1;
+  opacity: 1;
 }
