@@ -1,11 +1,13 @@
-body{
-    margin:0px;
-}  
-  .text-box{
-    transition: opacity 0.4s ease-in 0.7s;
-    /* opacity: 0; */
+<<<<<<< HEAD
+body {
+    margin: 0px;
+}
+=======
+.text-box{
+    transition: opacity 0.7s ease-in 0.7s;
     position: absolute;
     bottom: 0px;
+    /* opacity: 0; */
     color: #fff;
     margin: 10px ;
     background-color: rgba(0,0,0,0.5);
@@ -21,19 +23,12 @@ body{
     filter:drop-shadow(2px);
     font-size: 1.5rem;
   }
-  h2{
-    /* opacity: 0; */
-  }
-  .title-div{
-    display:flex;
-    justify-content: center;
-  }
   .container {
     display: flex;
     width: 90vw;
   }
   .panel-title{
-    transition: opacity 0.3s ease-in 0.4s;
+    transition: opacity 0.7s ease-in 0.7s;
     writing-mode: vertical-lr;
     text-transform: uppercase;
     margin: 2em;
@@ -43,6 +38,7 @@ body{
     margin: 0;
     padding: 0;
   }
+  
   .panel {
     background-size: auto 100%;
     background-position: center;
@@ -57,15 +53,12 @@ body{
     transition: flex 0.7s ease-in;
     overflow:hidden;
   }
+  
   .panel.active {
     flex: 10;
   }
   .panel-active .text-box{
-    transition: opacity 0.4s ease-in 0.7s;
+    transition: opacity 0.7s ease-in 0.7s;
     opacity:1;
   }
-<<<<<<< HEAD
-  
-  
-=======
 >>>>>>> main
