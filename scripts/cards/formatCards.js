@@ -1,5 +1,4 @@
 import {parkData} from "../parks/ParkDataManager.js"
-import { getBasicWeather } from "../weather/WeatherDataManager.js"
 
 export const getCards = (parkObj, weatherObj) =>{
     return 
