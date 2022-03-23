@@ -19,10 +19,17 @@ const injectWeather = (lat, long, apikey) =>{
             const today = date. getDate();
             const currentMonth = date. getMonth() + 1;
 
-             contentTarget.innerHTML += `March ${today}: ${weatherData.daily[i].weather[0].description}, high of ${parseInt(1.8*(weatherData.daily[i].temp.max - 273) +32)}&deg</br> `
+             contentTarget.innerHTML += `<p>March ${today}: ${weatherData.daily[i].weather[0].description}, high of ${parseInt(1.8*(weatherData.daily[i].temp.max - 273) +32)}&deg</p> `
         })
     }
 
+}
+
+const injectActivities = (activities) =>{
+    const contentTarget = document.querySelector(".activity-data-el")
+    for(const task in activities){
+        contentTarget.innerHTML += `<li>${task.name}</li>`
+    }
 }
 
 //This function modifies the default "panel--park" card on the HTML, replacing it with data generated via the park api 
@@ -34,7 +41,7 @@ export const ParkCard = (state, selectId) =>{
                 dataToRender += `<div class="panel" id="panel--park" style="background-image: url('${dataFromPark.data[selectId].images[0].url}');">
                 <h2 class="panel-title">${dataFromPark.data[selectId].fullName}</h2>
                 <div class="text-box">
-                <div class="activitiy-data-el"></div>
+                <ul class="activity-data-el"></ul>
                 <p>Five day forecast:</p>
                 <div class="weather-data-el">
 
@@ -44,7 +51,8 @@ export const ParkCard = (state, selectId) =>{
                 <button class="_Save Trip_">Save</button>
                 </div>
                 </div>`
-            document.querySelector("#panel--park").innerHTML = dataToRender 
+            document.querySelector("#panel--park").innerHTML = dataToRender
+            injectActivities(dataFromPark.data[0].activities[selectId]) 
             injectWeather(dataFromPark.data[selectId].latitude, dataFromPark.data[selectId].longitude, settings.weatherKey)           
         }) 
     
