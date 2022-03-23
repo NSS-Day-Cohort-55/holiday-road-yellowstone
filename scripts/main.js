@@ -1,9 +1,10 @@
 import {bizarreData} from "./attractions/AttractionDataManager.js"
 import { eatData } from "./eateries/EateryDataManager.js"
 import { parkData } from "./parks/ParkDataManager.js"
+import {defaultCards} from "./cards/defaultCards.js"
 import { footerHTML } from "./footer/Footer.js"
-import { ParkCard } from "./cards/renderCards.js"
-import { displayCards } from "./cards/renderCards.js"
+import { ParkCard } from "./cards/parkCard.js"
+// import { displayCards } from "./cards/renderCards.js"
 import { eatDropRender } from "./dropdown.js"
 
 //selects elements needed for rendering of cards
@@ -64,19 +65,19 @@ const removeActiveClasses = () => {
   }
 //assigns a listener to the card container, and performs actions based on the target
 document.querySelector(".card-container-el")
-    .addEventListener("click", clickEvent =>{
+.addEventListener("click", clickEvent =>{
 
-        if(clickEvent.target.id === "panel"){
-            removeActiveClasses()
-            displayTitles()
-            clickEvent.target.classList.add("active");
-            const displayText = clickEvent.target.querySelector('.text-box');
-            const removeTitle = clickEvent.target.querySelector('.panel-title');
-            setTimeout(func =>{displayText.style.cssText = 'display: block;'}, 700),removeTitle.style.cssText = 'opacity:0;'
-            
-            
-        }
-    })
+    if(clickEvent.target.id.startsWith("panel")){
+        removeActiveClasses()
+        displayTitles()
+        clickEvent.target.classList.add("active");
+        const displayText = clickEvent.target.querySelector('.text-box');
+        const removeTitle = clickEvent.target.querySelector('.panel-title');
+        setTimeout(func =>{displayText.style.cssText = 'display: block;'}, 700),removeTitle.style.cssText = 'opacity:0;'
+        
+        
+    }
+})
 
 
 const render= ()=>{
@@ -84,9 +85,8 @@ const render= ()=>{
 }
 
 // render()
-
-
-ParkCard("tn")
+defaultCards()
+ParkCard("tn", 1)
 eatDropRender()
-displayCards()
+// displayCards()
 footerHTML()
