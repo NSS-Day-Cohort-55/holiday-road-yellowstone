@@ -36,7 +36,7 @@ const injectActivities = (activities) =>{
 export const ParkCard = (state, selectId) =>{
     let dataToRender = ""
     //pulls in data from park api and formats/renders it into HTML
-    parkData(settings.npsKey, `stateCode=${state}` )
+    parkData(settings.npsKey, state )
         .then(dataFromPark =>{
                 dataToRender += `<div class="panel" id="panel--park" style="background-image: url('${dataFromPark.data[selectId].images[0].url}');">
                 <h2 class="panel-title">${dataFromPark.data[selectId].fullName}</h2>
