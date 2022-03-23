@@ -6,6 +6,7 @@ import { footerHTML } from "./footer/Footer.js";
 import { ParkCard } from "./cards/parkCard.js";
 // import { displayCards } from "./cards/renderCards.js"
 import { eatDropRender, bizarreDropRender, stateDropRender, parkDropRender } from "./dropdown.js";
+import { eatInnerHTML } from "./eateries/EatLoop.js";
 
 // //selects elements needed for rendering of cards
 
@@ -64,6 +65,7 @@ const displayTitles = () => {
 };
 const stateSelector = document.querySelector("#state-dropdown")
 const parkSelector = document.querySelector("#park-dropdown")
+const eatSelector = document.querySelector("#eat-dropdown")
 let stateCode = ""
 
 stateSelector.addEventListener("change", changeEvent =>{
@@ -74,6 +76,20 @@ stateSelector.addEventListener("change", changeEvent =>{
 parkSelector.addEventListener("change", changeEvent =>{
   const index = parseInt(parkSelector.value)
   ParkCard(stateCode, index)
+})
+
+eatSelector.addEventListener("change", changeEvent =>{
+  eatData().then(obj=>{
+    for (const i of obj){
+    if (eatSelector.value===i.businessName)
+{
+  eatInnerHTML(i)
+}    }
+  })
+
+
+  //const index = parseInt(eatSelector.value)
+  // eatCard( index)
 })
 
 //assigns a listener to the card container, and performs actions based on the target

@@ -8,7 +8,7 @@ export const eatDropRender = () => {
   eatData().then((obj) => {
     for (const i of obj) {
       document.querySelector("#eat-dropdown").innerHTML += `
-<option class="eatListen--${i.id}" value="eatName">${i.businessName}</option>
+<option class="eatListen--${i.id}" value="${i.businessName}">${i.businessName}</option>
     `;
     }
   });
