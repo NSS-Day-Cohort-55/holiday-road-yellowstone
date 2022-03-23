@@ -1,55 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./styles/main.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
     <header>
-        <div class="logo-image">
-            <img src="images/Logo.png" alt="logo">
-        </div>
-        <div class="yellow-stone-travel">
-            <h1>Yellow-Stone Travel</h1>   
-        </div> 
-        
-        <nav class="dropDowns">
-            <section class="stateDrop"></section>
-            <section class="eatDrop">
-                <div><label for="eatObj">Choose a place to eat:</label></div>
-                <select name="eat-dropdown" id="eat-dropdown">
-                </select>
-            </section>
-            <section class="bizarrDrop"></section>
-        </nav>
+      <div class="logo-image">
+        <img src="images/Logo.png" alt="logo" />
+      </div>
+      <div class="yellow-stone-travel">
+        <h1>Yellow-Stone Travel</h1>
+      </div>
+
+      <nav class="dropDowns">
+        <section class="stateDrop"></section>
+        <section class="eatDrop">
+          <div><label for="eatObj">Choose a place to eat:</label></div>
+          <select name="eat-dropdown" id="eat-dropdown"></select>
+        </section>
+        <section class="bizarreDrop">
+          <div><label for="bizzObj">Choose a destination:</label></div>
+          <select name="bizarre-dropdown" id="bizarre-dropdown"></select>
+        </section>
+      </nav>
     </header>
 
-    
     <main class="test">
-        <!-- This is the container for all of the card elements -->
-        <section class="card-container-el">
-            <!-- This is the target container for rendering the card elements -->
-            <div class="container">
-
-            </div>
-        </section>
+      <!-- This is the container for all of the card elements -->
+      <section class="card-container-el">
+        <!-- This is the target container for rendering the card elements -->
+        <div class="container"></div>
+      </section>
     </main>
 
-
-
-
-
-
-
-
-
-
-
-
-      <div class="footer"></div>
+    <div class="footer"></div>
     <script type="module" src="./scripts/main.js"></script>
-</body>
+  </body>
 </html>
