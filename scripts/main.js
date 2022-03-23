@@ -5,18 +5,18 @@ import { defaultCards } from "./cards/defaultCards.js";
 import { footerHTML } from "./footer/Footer.js";
 import { ParkCard } from "./cards/parkCard.js";
 // import { displayCards } from "./cards/renderCards.js"
-import { eatDropRender, bizarreDropRender } from "./dropdown.js";
+import { eatDropRender, bizarreDropRender, stateDropRender, parkDropRender } from "./dropdown.js";
 
 // //selects elements needed for rendering of cards
 
-// const weatherFunc = (obj) => {
-//   obj.then((i) => {
-//     document.querySelector(".test").innerHTML = `${i.list.map(
-//       (butt) => butt.main.temp
-//     )}`;
-//   });
-// };
-// //  weatherFunc(getWeatherData())
+const weatherFunc = (obj) => {
+  obj.then((i) => {
+    document.querySelector(".test").innerHTML = `${i.list.map(
+      (butt) => butt.main.temp
+    )}`;
+  });
+};
+//  weatherFunc(getWeatherData())
 
 // // for parkData
 // const renderNestedHtml = (allInfo) => {
@@ -62,6 +62,20 @@ const displayTitles = () => {
     title.classList.display = "block";
   });
 };
+const stateSelector = document.querySelector("#state-dropdown")
+const parkSelector = document.querySelector("#park-dropdown")
+let stateCode = ""
+
+stateSelector.addEventListener("change", changeEvent =>{
+  stateCode = stateSelector.value
+  parkDropRender(stateCode)
+})
+
+parkSelector.addEventListener("change", changeEvent =>{
+  const index = parseInt(parkSelector.value)
+  ParkCard(stateCode, index)
+})
+
 //assigns a listener to the card container, and performs actions based on the target
 document
   .querySelector(".card-container-el")
@@ -87,11 +101,12 @@ document
 
 // render()
 defaultCards();
-ParkCard("tn", 1);
+// ParkCard("tn", 3);
 eatDropRender();
 // displayCards()
 footerHTML();
 bizarreDropRender();
+stateDropRender();
 
 // event listeners
 
