@@ -8,7 +8,6 @@ export const bizarreHtmlRender = (obj) => {
   <p>Restrooms? ${obj.ameneties.restrooms ? "Yes" : "No"}</p>
       <h3>${obj.city}, ${obj.state}</h3>
       <p>${obj.description}</p>
-    <button class="save-el">Save</button>
   </div>
   </div>
     `;

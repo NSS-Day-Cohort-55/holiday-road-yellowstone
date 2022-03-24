@@ -8,7 +8,6 @@ export const eatHtmlRender= (obj)=>{
 <p>Wifi access? ${obj.ameneties.wifi ? "Yes" : "No" }</p>
     <h3>${obj.city}, ${obj.state}</h3>
     <p>${obj.description}</p>
-  <button class="save-el">Save</button>
 </div>
 </div>
     `
