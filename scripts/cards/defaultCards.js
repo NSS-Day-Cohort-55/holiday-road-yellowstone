@@ -15,7 +15,7 @@ export const defaultCards = () =>{
       <button class="save-el">Save</button>
     </div>
   </div>
-  <div class="panel" id="panel-att" style="background:linear-gradient(#C05746, white);">
+  <div class="panel" id="panel--att" style="background:linear-gradient(#C05746, white);">
     <div class="title-div">
       <h2 class="panel-title">What will you do?</h2>
     </div>

@@ -1,0 +1,32 @@
+.saved-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #503047;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .saved-nav a:hover {
+    color: #503047;
+  }
+  
+  .saved-nav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .nav-btn{
+    font-size: 30px;
+    cursor: pointer;
+  }
+  .closebtn{
+    font-size: 30px;
+    cursor: pointer;
+  }
