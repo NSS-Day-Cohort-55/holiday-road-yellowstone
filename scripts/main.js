@@ -4,6 +4,7 @@ import { parkData } from "./parks/ParkDataManager.js";
 import { defaultCards } from "./cards/defaultCards.js";
 import { footerHTML } from "./footer/Footer.js";
 import { ParkCard } from "./cards/parkCard.js";
+import { createTrip } from "./trips/savedTrips.js"
 // import { displayCards } from "./cards/renderCards.js"
 import {
   eatDropRender,
@@ -16,18 +17,18 @@ import { bizarreInnerHTML } from "./attractions/BizarreLoop.js";
 
 // //selects elements needed for rendering of cards
 
-const checkConditions = () => {
-  const parkSaveData = park.querySelector(".panel-title").innerHTML;
-  const bizzSaveData = bizz.querySelector(".panel-title").innerHTML;
-  const eaterySaveData = document.querySelector(".panel-title").innerHTML;
-  if (
-    parkSaveData.toUpperCase !== "Where will you go?" &&
-    bizzSaveData.toUpperCase !== "What will you do?" &&
-    eaterySaveData.toUpperCase !== "Where will you eat?"
-  ) {
-    saveButton.disabled = false;
-  }
-};
+// const checkConditions = () => {
+//   const parkSaveData = park.querySelector(".panel-title").innerHTML;
+//   const bizzSaveData = bizz.querySelector(".panel-title").innerHTML;
+//   const eaterySaveData = eatery.querySelector(".panel-title").innerHTML;
+//   if (
+//     parkSaveData.toUpperCase !== "WHERE WILL YOU GO?" &&
+//     bizzSaveData.toUpperCase !== "WHAT WILL YOU DO?" &&
+//     eaterySaveData.toUpperCase !== "WHERE WILL YOU EAT?"
+//   ) {
+//     saveButton.disabled = false;
+//   }
+// };
 const weatherFunc = (obj) => {
   obj.then((i) => {
     document.querySelector(".test").innerHTML = `${i.list.map(
@@ -86,10 +87,8 @@ const parkSelector = document.querySelector("#park-dropdown");
 const eatSelector = document.querySelector("#eat-dropdown");
 const bizarreSelector = document.querySelector("#bizarre-dropdown");
 const saveButton = document.querySelector("#save-btn");
-const park = document.querySelector("#panel--park");
-const bizz = document.querySelector("#panel--att");
-const eatery = document.querySelector("#panel--eat");
-saveButton.disabled = true;
+
+// saveButton.disabled = true;
 let stateCode = "";
 
 stateSelector.addEventListener("change", (changeEvent) => {
@@ -156,15 +155,20 @@ document.querySelector(".closebtn").addEventListener("click", (event) => {
 });
 document.querySelector("#save-btn").addEventListener("click", (event) => {
   event.preventDefault();
-  const parkSaveData = park.querySelector(".panel-title").innerHTML;
+const park = document.querySelector("#panel--park");
+const bizz = document.querySelector("#panel--att");
+const eatery = document.querySelector("#panel--eat");
+  const parkSaveData = park.querySelector(".panel-title").innerHTML
   const bizzSaveData = bizz.querySelector(".panel-title").innerHTML;
-  const eaterySaveData = document.querySelector(".panel-title").innerHTML;
+  const eaterySaveData = eatery.querySelector(".panel-title").innerHTML;
 
   const trip = {
     park: parkSaveData,
     bizz: bizzSaveData,
     eatery: eaterySaveData,
   };
+
+  createTrip(trip)
 
   //needs function to post to json
 });
