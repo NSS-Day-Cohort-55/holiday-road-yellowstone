@@ -48,9 +48,12 @@ export const ParkCard = (state, selectId) =>{
 
                 </div>
                 <h3>${dataFromPark.data[selectId].fullName}</h3>
-                <p>Admission: $${dataFromPark.data[selectId].entranceFees[0].cost}</p>
                 <h4>About the park:</h4>
+                <div class="park-data-el">
+                <p>Admission: $${dataFromPark.data[selectId].entranceFees[0].cost}</p>
                 <p>${dataFromPark.data[selectId].description}</p>
+                <a href="${dataFromPark.data[selectId].url}" target="_blank">More info</a>
+                </div>
                 </div>
                 </div>`
             document.querySelector("#panel--park").innerHTML = dataToRender

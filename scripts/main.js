@@ -10,6 +10,16 @@ import { eatInnerHTML } from "./eateries/EatLoop.js";
 
 // //selects elements needed for rendering of cards
 
+const checkConditions = () =>{
+  const parkSaveData = park.querySelector(".panel-title").innerHTML
+  const bizzSaveData = bizz.querySelector(".panel-title").innerHTML
+  const eaterySaveData = document.querySelector(".panel-title").innerHTML
+  if(parkSaveData.toUpperCase !== "Where will you go?" &&
+  bizzSaveData.toUpperCase !== "What will you do?" &&
+  eaterySaveData.toUpperCase !== "Where will you eat?"){
+    saveButton.disabled = false;
+  }
+}
 const weatherFunc = (obj) => {
   obj.then((i) => {
     document.querySelector(".test").innerHTML = `${i.list.map(
@@ -66,6 +76,11 @@ const displayTitles = () => {
 const stateSelector = document.querySelector("#state-dropdown")
 const parkSelector = document.querySelector("#park-dropdown")
 const eatSelector = document.querySelector("#eat-dropdown")
+const saveButton = document.querySelector("#save-btn")
+const park = document.querySelector("#panel--park")
+const bizz = document.querySelector("#panel--att")
+const eatery = document.querySelector("#panel--eat")
+saveButton.disabled = true;
 let stateCode = ""
 
 stateSelector.addEventListener("change", changeEvent =>{
@@ -76,6 +91,7 @@ stateSelector.addEventListener("change", changeEvent =>{
 parkSelector.addEventListener("change", changeEvent =>{
   const index = parseInt(parkSelector.value)
   ParkCard(stateCode, index)
+  checkConditions()
 })
 
 eatSelector.addEventListener("change", changeEvent =>{
@@ -84,6 +100,7 @@ eatSelector.addEventListener("change", changeEvent =>{
     if (eatSelector.value===i.businessName)
 {
   eatInnerHTML(i)
+  checkConditions()
 }    }
   })
 
@@ -110,7 +127,6 @@ document
   });
 
   document.querySelector(".nav-btn").addEventListener("click", event =>{
-    console.log("I was clicked")
     document.querySelector("#saved-items-nav").style.width = "250px";
   })
   document.querySelector(".closebtn").addEventListener("click", event =>{
@@ -118,10 +134,19 @@ document
   })
   document.querySelector("#save-btn").addEventListener("click", event =>{
     event.preventDefault()
-    const park = document.querySelector("#panel--park")
     const parkSaveData = park.querySelector(".panel-title").innerHTML
-    // const bizz = document.querySelector("#panel--att").value
-    // const eatery = document.querySelector("#panel--eat").value
+    const bizzSaveData = bizz.querySelector(".panel-title").innerHTML
+    const eaterySaveData = document.querySelector(".panel-title").innerHTML
+
+    const trip = {
+      "park": parkSaveData,
+      "bizz": bizzSaveData,
+      "eatery": eaterySaveData
+    }
+
+
+    //needs function to post to json
+
   })
 
 // const render = () => {
