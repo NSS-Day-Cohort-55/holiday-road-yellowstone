@@ -12,7 +12,6 @@ export const defaultCards = () =>{
             Nullam felis velit, maximus id ligula sit amet, dictum vehicula massa.</p>
       <h3>Nashville, TN</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae quibusdam id incidunt ratione veniam saepe dolor natus quidem optio aliquam quos veritatis quisquam, placeat debitis corporis ut neque cumque.</p>
-      <button class="save-el">Save</button>
     </div>
   </div>
   <div class="panel" id="panel--att" style="background:linear-gradient(#C05746, white);">
@@ -26,7 +25,7 @@ export const defaultCards = () =>{
             Nullam felis velit, maximus id ligula sit amet, dictum vehicula massa.</p>
       <h3>Nashville, TN</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae quibusdam id incidunt ratione veniam saepe dolor natus quidem optio aliquam quos veritatis quisquam, placeat debitis corporis ut neque cumque.</p>
-      <button class="save-el">Save</button>
+
     </div>
   </div>
   <div class="panel" id="panel--eat" style="background:linear-gradient(#eeeeaa, white);">
@@ -40,7 +39,7 @@ export const defaultCards = () =>{
             Nullam felis velit, maximus id ligula sit amet, dictum vehicula massa.</p>
       <h3>Nashville, TN</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae quibusdam id incidunt ratione veniam saepe dolor natus quidem optio aliquam quos veritatis quisquam, placeat debitis corporis ut neque cumque.</p>
-      <button class="save-el">Save</button>
+
     </div>
   </div>
     
