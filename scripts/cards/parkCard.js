@@ -29,8 +29,7 @@ const injectActivities = (activities) =>{
     for(let i = 0; i<activities.length; i++){
         contentTarget.innerHTML += `<li>${activities[i].name}</li>`
     }
-        
-    
+   
 }
 
 //This function modifies the default "panel--park" card on the HTML, replacing it with data generated via the park api 
@@ -49,6 +48,8 @@ export const ParkCard = (state, selectId) =>{
 
                 </div>
                 <h3>${dataFromPark.data[selectId].fullName}</h3>
+                <p>Admission: $${dataFromPark.data[selectId].entranceFees[0].cost}</p>
+                <h4>About the park:</h4>
                 <p>${dataFromPark.data[selectId].description}</p>
                 </div>
                 </div>`

@@ -25,15 +25,20 @@ body {
   display:flex;
   justify-content: center;
 }
+.activity-data-el{
+  margin: 5px 0px;
+  overflow:auto;
+  /* flex:1; */
+}
 .container {
   display: flex;
   width: 100vw;
 }
 .panel-title{
   transition: opacity 0.3s ease-in 0.4s;
-  writing-mode: vertical-lr;
+  /* writing-mode: vertical-lr; */
   text-transform: uppercase;
-  margin: 2em;
+  margin: 50% 10%;
   padding: 0;
   text-shadow: 0px 0px 10px black;
 }
