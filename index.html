@@ -9,6 +9,7 @@
   </head>
   <body>
     <header>
+        <span class="nav-btn">&#9776;</span>
       <div class="logo-image">
         <img src="images/Logo.png" alt="logo" />
       </div>
@@ -34,8 +35,13 @@
             <select name="park-dropdown" id="park-dropdown"></select>
         </section>
       </nav>
+      <button type="button" id="save-btn">Save</button>
     </header>
-
+    <div id="saved-items-nav" class="saved-nav">
+        <div class="closebtn">&times;</div>
+        <h3>Saved Trips:</h3>
+        <div class="saved-trip-el"></div>
+      </div>
     <main class="test">
       <!-- This is the container for all of the card elements -->
       <section class="card-container-el">

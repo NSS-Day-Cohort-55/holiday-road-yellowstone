@@ -109,6 +109,21 @@ document
     }
   });
 
+  document.querySelector(".nav-btn").addEventListener("click", event =>{
+    console.log("I was clicked")
+    document.querySelector("#saved-items-nav").style.width = "250px";
+  })
+  document.querySelector(".closebtn").addEventListener("click", event =>{
+    document.querySelector("#saved-items-nav").style.width = "0px";
+  })
+  document.querySelector("#save-btn").addEventListener("click", event =>{
+    event.preventDefault()
+    const park = document.querySelector("#panel--park")
+    const parkSaveData = park.querySelector(".panel-title").innerHTML
+    // const bizz = document.querySelector("#panel--att").value
+    // const eatery = document.querySelector("#panel--eat").value
+  })
+
 // const render = () => {
 //   parkData().then((obj) => {
 //     document.querySelector(".test").innerHTML = renderHtml(obj);
