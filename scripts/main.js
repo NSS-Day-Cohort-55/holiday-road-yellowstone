@@ -5,8 +5,14 @@ import { defaultCards } from "./cards/defaultCards.js";
 import { footerHTML } from "./footer/Footer.js";
 import { ParkCard } from "./cards/parkCard.js";
 // import { displayCards } from "./cards/renderCards.js"
-import { eatDropRender, bizarreDropRender, stateDropRender, parkDropRender } from "./dropdown.js";
+import {
+  eatDropRender,
+  bizarreDropRender,
+  stateDropRender,
+  parkDropRender,
+} from "./dropdown.js";
 import { eatInnerHTML } from "./eateries/EatLoop.js";
+import { bizarreInnerHTML } from "./attractions/BizarreLoop.js";
 
 // //selects elements needed for rendering of cards
 
@@ -63,34 +69,45 @@ const displayTitles = () => {
     title.classList.display = "block";
   });
 };
-const stateSelector = document.querySelector("#state-dropdown")
-const parkSelector = document.querySelector("#park-dropdown")
-const eatSelector = document.querySelector("#eat-dropdown")
-let stateCode = ""
+const stateSelector = document.querySelector("#state-dropdown");
+const parkSelector = document.querySelector("#park-dropdown");
+const eatSelector = document.querySelector("#eat-dropdown");
+const bizarreSelector = document.querySelector("#bizarre-dropdown");
 
-stateSelector.addEventListener("change", changeEvent =>{
-  stateCode = stateSelector.value
-  parkDropRender(stateCode)
-})
+let stateCode = "";
 
-parkSelector.addEventListener("change", changeEvent =>{
-  const index = parseInt(parkSelector.value)
-  ParkCard(stateCode, index)
-})
+stateSelector.addEventListener("change", (changeEvent) => {
+  stateCode = stateSelector.value;
+  parkDropRender(stateCode);
+});
 
-eatSelector.addEventListener("change", changeEvent =>{
-  eatData().then(obj=>{
-    for (const i of obj){
-    if (eatSelector.value===i.businessName)
-{
-  eatInnerHTML(i)
-}    }
-  })
+parkSelector.addEventListener("change", (changeEvent) => {
+  const index = parseInt(parkSelector.value);
+  ParkCard(stateCode, index);
+});
 
+eatSelector.addEventListener("change", (changeEvent) => {
+  eatData().then((obj) => {
+    for (const i of obj) {
+      if (eatSelector.value === i.businessName) {
+        eatInnerHTML(i);
+      }
+    }
+  });
 
   //const index = parseInt(eatSelector.value)
   // eatCard( index)
-})
+});
+
+bizarreSelector.addEventListener("change", (changeEvent) => {
+  bizarreData().then((obj) => {
+    for (const i of obj) {
+      if (bizarreSelector.value === i.name) {
+        bizarreInnerHTML(i);
+      }
+    }
+  });
+});
 
 //assigns a listener to the card container, and performs actions based on the target
 document
