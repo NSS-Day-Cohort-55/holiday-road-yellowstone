@@ -13,7 +13,8 @@ header {
     font-family: 'Caveat', cursive;
     color: #eeeeaa;
     text-align: left;
-    font-size: xx-large;
+    font-size: 1.5vw;
+    margin-right: 30px;
 }
 
 img {

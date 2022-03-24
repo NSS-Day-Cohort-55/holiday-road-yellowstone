@@ -3,7 +3,7 @@
   .footer #button{
       width:35px;
       height:35px;
-      border: #727172 12px solid;
+      border: #C05746 12px solid;
       border-radius:35px;
       margin:0 auto;
       position:relative;
@@ -55,7 +55,8 @@
     position:relative;
     top:0;
     left:0;
-      background: #3A3A3A;
+    color: #eeeeaa;
+    background-color: #C05746;
   }
   .footer #cont{
     position:relative;
