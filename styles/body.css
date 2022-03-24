@@ -52,7 +52,7 @@ body {
   overflow:hidden;
 }
 .panel.active {
-  flex: 10;
+  /* flex: 10; */
 }
 .panel-active .text-box{
   transition: opacity 0.4s ease-in 0.7s;
