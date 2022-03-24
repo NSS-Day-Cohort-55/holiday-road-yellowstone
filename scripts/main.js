@@ -4,7 +4,7 @@ import { parkData } from "./parks/ParkDataManager.js";
 import { defaultCards } from "./cards/defaultCards.js";
 import { footerHTML } from "./footer/Footer.js";
 import { ParkCard } from "./cards/parkCard.js";
-import { createTrip } from "./trips/savedTrips.js"
+import { createTrip, getTrips } from "./trips/savedTrips.js"
 // import { displayCards } from "./cards/renderCards.js"
 import {
   eatDropRender,
@@ -88,6 +88,13 @@ const eatSelector = document.querySelector("#eat-dropdown");
 const bizarreSelector = document.querySelector("#bizarre-dropdown");
 const saveButton = document.querySelector("#save-btn");
 
+
+const renderSavedTrips= ()=>{
+  getTrips().then((arr)=>{
+    for (const i of arr){
+    document.querySelector(".saved-trip-el").innerHTML+=`<h3>${i.park} ${i.bizz} ${i.eatery}</h3>`}})
+  }
+  renderSavedTrips()
 // saveButton.disabled = true;
 let stateCode = "";
 
@@ -169,6 +176,9 @@ const eatery = document.querySelector("#panel--eat");
   };
 
   createTrip(trip)
+  .then(obj=>{
+    document.querySelector(".saved-trip-el").innerHTML=""
+    renderSavedTrips()})
 
   //needs function to post to json
 });
@@ -193,3 +203,5 @@ stateDropRender();
 const dropdownElement = document.querySelector(".dropDowns");
 
 dropdownElement.addEventListener("change", (event) => {});
+
+
